@@ -14,9 +14,167 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 2,
-    "iteration": 1585225017433,
+    "iteration": 1585225017475,
     "links": [],
     "panels": [{
+            "cacheTimeout": null,
+            "colorBackground": true,
+            "colorValue": false,
+            "colors": [
+                "#d44a3a",
+                "rgba(237, 129, 40, 0.89)",
+                "#299c46"
+            ],
+            "datasource": "Prometheus",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 5,
+                "w": 12,
+                "x": 0,
+                "y": 0
+            },
+            "id": 8,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [{
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "pluginVersion": "6.7.1",
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [{
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+            }],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false,
+                "ymax": null,
+                "ymin": null
+            },
+            "tableColumn": "",
+            "targets": [{
+                "expr": "count(dcm_port_input > $bitrateThreshold)",
+                "instant": true,
+                "interval": "",
+                "legendFormat": "",
+                "refId": "A"
+            }],
+            "thresholds": "700,1000",
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "input port count",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [{
+                "op": "=",
+                "text": "N/A",
+                "value": "null"
+            }],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": true,
+            "colorValue": false,
+            "colors": [
+                "#d44a3a",
+                "rgba(237, 129, 40, 0.89)",
+                "#299c46"
+            ],
+            "datasource": null,
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 5,
+                "w": 12,
+                "x": 12,
+                "y": 0
+            },
+            "id": 10,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [{
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "pluginVersion": "6.7.1",
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [{
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+            }],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false,
+                "ymax": null,
+                "ymin": null
+            },
+            "tableColumn": "",
+            "targets": [{
+                "expr": "count(dcm_port_output > $bitrateThreshold)",
+                "instant": false,
+                "interval": "",
+                "legendFormat": "",
+                "refId": "A"
+            }],
+            "thresholds": "700,1000,1500",
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "output bitrate count",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [{
+                "op": "=",
+                "text": "N/A",
+                "value": "null"
+            }],
+            "valueName": "current"
+        },
+        {
             "aliasColors": {},
             "bars": false,
             "dashLength": 10,
@@ -28,7 +186,7 @@
                 "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 0
+                "y": 5
             },
             "hiddenSeries": false,
             "id": 2,
@@ -132,7 +290,7 @@
                 "h": 8,
                 "w": 12,
                 "x": 12,
-                "y": 0
+                "y": 5
             },
             "hiddenSeries": false,
             "id": 4,
@@ -229,7 +387,7 @@
                 "h": 7,
                 "w": 24,
                 "x": 0,
-                "y": 8
+                "y": 13
             },
             "id": 6,
             "pageSize": 99999999,
@@ -237,8 +395,8 @@
             "repeatDirection": "h",
             "showHeader": true,
             "sort": {
-                "col": 4,
-                "desc": false
+                "col": 3,
+                "desc": true
             },
             "styles": [{
                     "alias": "",
@@ -348,36 +506,56 @@
     "tags": [],
     "templating": {
         "list": [{
-            "allValue": null,
-            "current": {
-                "text": "1",
-                "value": [
-                    "1"
-                ]
+                "allValue": null,
+                "current": {
+                    "text": "1 + 7",
+                    "value": [
+                        "1",
+                        "7"
+                    ]
+                },
+                "datasource": "Prometheus",
+                "definition": "label_values(dcm_port_bitrate,port)",
+                "hide": 0,
+                "includeAll": false,
+                "index": -1,
+                "label": null,
+                "multi": true,
+                "name": "port",
+                "options": [],
+                "query": "label_values(dcm_port_bitrate,port)",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 3,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
             },
-            "datasource": "Prometheus",
-            "definition": "label_values(dcm_port_bitrate,port)",
-            "hide": 0,
-            "includeAll": false,
-            "index": -1,
-            "label": null,
-            "multi": true,
-            "name": "port",
-            "options": [],
-            "query": "label_values(dcm_port_bitrate,port)",
-            "refresh": 1,
-            "regex": "",
-            "skipUrlSync": false,
-            "sort": 0,
-            "tagValuesQuery": "",
-            "tags": [],
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
-        }]
+            {
+                "current": {
+                    "selected": false,
+                    "text": "1.5",
+                    "value": "1.5"
+                },
+                "hide": 0,
+                "label": "bitrate threshold",
+                "name": "bitrateThreshold",
+                "options": [{
+                    "selected": true,
+                    "text": "1.5",
+                    "value": "1.5"
+                }],
+                "query": "1.5",
+                "skipUrlSync": false,
+                "type": "textbox"
+            }
+        ]
     },
     "time": {
-        "from": "now-5m",
+        "from": "now-30m",
         "to": "now"
     },
     "timepicker": {
@@ -400,5 +578,5 @@
     "variables": {
         "list": []
     },
-    "version": 2
+    "version": 3
 }
